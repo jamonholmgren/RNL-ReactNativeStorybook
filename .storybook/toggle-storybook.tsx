@@ -63,7 +63,7 @@ export function ToggleStorybook(props) {
     })
   }, [])
 
-  if (true) {
+  if (showStorybook) {
     return StorybookUIRoot ? <StorybookUIRoot /> : null
   } else {
     return props.children

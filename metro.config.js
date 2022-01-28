@@ -15,9 +15,11 @@ module.exports = (async () => {
   const defaultConfig = await getDefaultConfig()
   return makeMetroConfig({
     projectRoot: __dirname,
+    watchFolders: [...defaultConfig.watchFolders, "./.storybook"],
     resolver: {
       resolveRequest: MetroSymlinksResolver(),
       assetExts: [...defaultConfig.resolver.assetExts, "bin"],
+      resolverMainFields: ["sbmodern", "browser", "main"],
     },
   })
 })()

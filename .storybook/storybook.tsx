@@ -1,19 +1,15 @@
 import React, { useEffect } from "react"
-import { getStorybookUI, configure } from "@storybook/react-native"
+import { getStorybookUI } from "@storybook/react-native"
 import { initFonts } from "../app/theme/fonts"
 
-declare let module
+import "./storybook.requires"
 
-configure(() => {
-  require("./storybook-registry")
-}, module)
+export default StorybookUIRoot
 
-const StorybookUI = getStorybookUI({
-  port: 9001,
-  host: "localhost",
-  onDeviceUI: true,
-  asyncStorage: require("@react-native-async-storage/async-storage").default || null,
-})
+// declare let module
+declare var __TEST__: any
+
+const StorybookUI = getStorybookUI({})
 
 export function StorybookUIRoot() {
   useEffect(() => {
