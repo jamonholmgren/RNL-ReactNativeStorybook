@@ -17,9 +17,10 @@ module.exports = (async () => {
     projectRoot: __dirname,
     watchFolders: [...defaultConfig.watchFolders, "./.storybook"],
     resolver: {
+      resolverMainFields: ["sbmodern", "browser", "main"],
       resolveRequest: MetroSymlinksResolver(),
       assetExts: [...defaultConfig.resolver.assetExts, "bin"],
-      resolverMainFields: ["sbmodern", "browser", "main"],
+      sourceExts: [...defaultConfig.resolver.sourceExts, "cjs"],
     },
   })
 })()
